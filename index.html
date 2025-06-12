@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        h2, p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>🏠 House Price Predictor</h2>
+    <form action="/predict" method="POST">
+        <label>Area (sq ft):</label>
+        <input type="number" name="area" step="any" required>
+        <label>Bedrooms:</label>
+        <input type="number" name="bedrooms" required>
+        <label>Bathrooms:</label>
+        <input type="number" name="bathrooms" required>
+        <input type="submit" value="Predict Price">
+    </form>
+    {% if prediction_text %}
+    <p><strong>{{ prediction_text }}</strong></p>
+    {% endif %}
+</body>
+</html>
